@@ -1,23 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>SmartCrop Guardian</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>🌿 SmartCrop Guardian</h1>
-    <p>AI-powered crop issue detection for Nigerian farmers</p>
-  </header>
 
-  <section class="upload-section">
-    <h2>Upload Your Crop Image</h2>
-    <input type="file" accept="image/*" />
-  </section>
+  <h1>🌿 SmartCrop Guardian</h1>
+
+  <div class="section">
+    <h2>Welcome</h2>
+    <p>Helping Nigerian farmers detect crop diseases using AI-powered image analysis.</p>
+    <img src="https://i.postimg.cc/3wfVdyyP/20250712-222955.png" alt="Welcome Screen">
+  </div>
+
+  <div class="section">
+    <h2>Upload Your Crop Photo</h2>
+    <p>Select a photo of your crop:</p>
+    <input type="file" accept="image/*" onchange="showDiagnosis()" />
+  </div>
+
+  <div class="section" id="diagnosis" style="display:none;"></div>
+
+  <div class="section" id="remedy" style="display:none;">
+    <h2>Suggested Remedies</h2>
+    <ul>
+      <li>Apply fungicide such as <em>Chlorothalonil</em></li>
+      <li>Remove infected leaves</li>
+      <li>Ensure proper crop spacing and ventilation</li>
+      <li>Consult your local agricultural expert</li>
+    </ul>
+    <img src="assets/images/remedy.png" alt="Remedy Screen">
+  </div>
+
+  <div class="section">
+    <h2>About SmartCrop Guardian</h2>
+    <p>
+      SmartCrop Guardian helps farmers in Nigeria detect crop diseases through image uploads.
+      It uses machine learning to deliver instant diagnostics and advice—offline and in multiple languages.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Why It Matters</h2>
+    <p>
+      Crop loss affects food security. Many rural farmers lack expert diagnosis.
+      SmartCrop Guardian bridges this gap with instant insights and support in Hausa and English.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>App Features</h2>
+    <ul>
+      <li>📷 Upload plant photos for instant diagnosis</li>
+      <li>🧠 Get disease type, severity, and confidence level</li>
+      <li>💡 View remedies and agronomic tips</li>
+      <li>🌐 Works offline in rural areas</li>
+      <li>🗣️ Supports English and Hausa languages</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Impact Goals</h2>
+    <p>
+      We aim to reduce crop losses, boost resilience, and expand access to AI farming solutions across West Africa.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Live Demo</h2>
+    <p><a href="https://yourusername.github.io/smartcrop-guardian" target="_blank" class="form-link">Visit the Demo Site</a></p>
+  </div>
+
+  <div class="section">
+    <h2>📬 Send Us a Message</h2>
+    <form action="https://formspree.io/f/xwpqeerl" method="POST">
+      <label for="message">Your Message:</label>
+      <input type="text" id="message" name="message" placeholder="Type your message here..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>🌾 Report Crop Issue</h2>
+    <p>Help improve detection by submitting real crop cases below.</p>
+    <a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScu78RtbE2Hp0K6RVzS5LPVI9B6kds9CRRVqdo6x3Oy3JWw2g/viewform?usp=dialog" target="_blank">Submit Crop Issue</a>
+  </div>
 
   <footer>
-    Created by Anwar · Empowering Agriculture with Technology
+    Created by Anwar for the AI-Powered Solution Showcase.
   </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
+
+
