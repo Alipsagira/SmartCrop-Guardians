@@ -1,10 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>SmartCrop Guardian</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8f5;
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      color: #333;
+}
+    h1 {
+      color: #2e8b57;
+      text-align: center;
+}
+    h2 {
+      color: #246b45;
+}
+.section {
+      margin-bottom: 2em;
+      background: #fff;
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 1em;
+}
+    input[type="file"],
+    input[type="text"],
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 1em;
+      font-size: 1em;
+}
+    input[type="file"] {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+}
+    input[type="text"] {
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+}
+    button {
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      padding: 0.8em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+}
+    button:hover {
+      background-color: #1f5838;
+}
+.result {
+      background-color: #e6ffe6;
+      padding: 1em;
+      border-radius: 5px;
+      margin-top: 1em;
+}
+.form-link {
+      display: inline-block;
+      background: #2e8b57;
+      color: white;
+      padding: 0.8em 1.4em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+      margin-top: 1em;
+}
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 3em;
+      color: #666;
+}
+  </style>
 </head>
 <body>
 
@@ -44,14 +123,6 @@
   </div>
 
   <div class="section">
-    <h2>Why It Matters</h2>
-    <p>
-      Crop loss affects food security. Many rural farmers lack expert diagnosis.
-      SmartCrop Guardian bridges this gap with instant insights and support in Hausa and English.
-    </p>
-  </div>
-
-  <div class="section">
     <h2>App Features</h2>
     <ul>
       <li>📷 Upload plant photos for instant diagnosis</li>
@@ -63,21 +134,15 @@
   </div>
 
   <div class="section">
-    <h2>Impact Goals</h2>
-    <p>
-      We aim to reduce crop losses, boost resilience, and expand access to AI farming solutions across West Africa.
-    </p>
-  </div>
-
-  <div class="section">
     <h2>🧪 Live Demo</h2>
-    <p><a href=" https://github.com/Alipsagira/SmartCrop-Guardians  " target="_blank" class="form-link">Visit the Demo Site</a></p>
+    <a class="form-link" href="https://github.com/Alipsagira/SmartCrop-Guardians" target="_blank">Visit GitHub Repo</a>
+    <a class="form-link" href="https://alipsagira.github.io/SmartCrop-Guardians" target="_blank">Try Live Site</a>
   </div>
 
   <div class="section">
     <h2>📬 Send Us a Message</h2>
     <form action="https://formspree.io/f/xwpqeerl" method="POST">
-      <label for="message">Your Message:</label>
+ <label for="message">Your Message:</label>
       <input type="text" id="message" name="message" placeholder="Type your message here..." required />
       <button type="submit">Send</button>
     </form>
@@ -93,8 +158,35 @@
     Created by Anwar for the AI-Powered Solution Showcase.
   </footer>
 
-  <script src="js/app.js"></script>
+  <script>
+    const diseases = [
+      { name: "Early Blight", severity: "High", confidence: "93%", image: "early-blight.png"},
+      { name: "Leaf Curl", severity: "Medium", confidence: "87%", image: "leaf-curl.png"},
+      { name: "Septoria Spot", severity: "Low", confidence: "78%", image: "septoria-spot.png"},
+      { name: "Powdery Mildew", severity: "High", confidence: "88%", image: "powdery-mildew.png"},
+      { name: "Bacterial Spot", severity: "Medium", confidence: "82%", image: "bacterial-spot.png"}
+    ];
+
+    function showDiagnosis() {
+      const random = diseases[Math.floor(Math.random() * diseases.length)];
+
+      const diagnosis = document.getElementById("diagnosis");
+      diagnosis.innerHTML = `
+        <h2>Diagnosis Result</h2>
+        <div class="result">
+          <strong>Disease Detected:</strong> Tomato – ${random.name}<br>
+          <strong>Severity:</strong> ${random.severity}<br>
+          <strong>Confidence:</strong> ${random.confidence}
+        </div>
+        <img src="assets/images/${random.image}" alt="${random.name} Image">
+      `;
+      diagnosis.style.display = "block";
+
+      const remedy = document.getElementById("remedy");
+      remedy.style.display = "block";
+}
+  </script>
+
 </body>
 </html>
-
-
+ 
